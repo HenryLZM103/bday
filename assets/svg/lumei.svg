@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="210" viewBox="0 0 200 210" role="img" aria-label="噜妹">
+  <defs>
+    <radialGradient id="blush" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F2A184" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#F2A184" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- 耳朵 -->
+  <circle cx="48" cy="64" r="14" fill="#C08F66"/>
+  <circle cx="48" cy="64" r="7" fill="#8A6042"/>
+  <circle cx="152" cy="64" r="14" fill="#C08F66"/>
+  <circle cx="152" cy="64" r="7" fill="#8A6042"/>
+  <!-- 头 -->
+  <rect x="28" y="58" width="144" height="126" rx="46" fill="#D8AC7C"/>
+  <!-- 口鼻 -->
+  <rect x="60" y="130" width="80" height="46" rx="23" fill="#F1DFC4"/>
+  <!-- 腮红 -->
+  <ellipse cx="52" cy="124" rx="16" ry="10" fill="url(#blush)" opacity=".8"/>
+  <ellipse cx="148" cy="124" rx="16" ry="10" fill="url(#blush)" opacity=".8"/>
+  <!-- 眼睛 -->
+  <circle cx="70" cy="101" r="8" fill="#3A2418"/>
+  <circle cx="130" cy="101" r="8" fill="#3A2418"/>
+  <circle cx="73" cy="98" r="3" fill="#fff" opacity=".95"/>
+  <circle cx="133" cy="98" r="3" fill="#fff" opacity=".95"/>
+  <path d="M62 86 q5 -6 11 -5" stroke="#3A2418" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+  <path d="M138 86 q-5 -6 -11 -5" stroke="#3A2418" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+  <!-- 鼻子 -->
+  <rect x="86" y="136" width="28" height="14" rx="7" fill="#3A2418"/>
+  <rect x="93" y="140" width="4" height="5" rx="2" fill="#5B3B27"/>
+  <rect x="103" y="140" width="4" height="5" rx="2" fill="#5B3B27"/>
+  <!-- 嘴 -->
+  <path d="M100 150 v7" stroke="#3A2418" stroke-width="3" stroke-linecap="round"/>
+  <path d="M100 157 q-7 6 -13 1" stroke="#3A2418" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M100 157 q7 6 13 1" stroke="#3A2418" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- 头上的小花 -->
+  <g transform="translate(152 44)">
+    <circle cx="0" cy="-9" r="6" fill="#F4A7A0"/>
+    <circle cx="8.5" cy="-2.8" r="6" fill="#F4A7A0"/>
+    <circle cx="5.3" cy="7.3" r="6" fill="#F4A7A0"/>
+    <circle cx="-5.3" cy="7.3" r="6" fill="#F4A7A0"/>
+    <circle cx="-8.5" cy="-2.8" r="6" fill="#F4A7A0"/>
+    <circle cx="0" cy="0" r="4.5" fill="#E8894A"/>
+  </g>
+</svg>

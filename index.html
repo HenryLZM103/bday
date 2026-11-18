@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#f9f0e3">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='38' r='21' fill='%23F08C3E'/%3E%3Cellipse cx='40' cy='18' rx='11' ry='6' fill='%237CAE5C' transform='rotate(-22 40 18)'/%3E%3C/svg%3E">
+<title>你的 2026</title>
+<meta property="og:title" content="你的 2026 · 一份只发给你的年度报告">
+<meta property="og:description" content="仅你可见。">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-cream">
+
+<!-- 开场加载 -->
+<div class="intro" id="intro">
+  <div class="intro__inner">
+    <div class="intro__text" id="intro-text">正在读取 2026 年的记忆</div>
+    <div class="intro__bar"><i id="intro-bar"></i></div>
+    <div class="intro__pct" id="intro-pct">0%</div>
+    <button class="intro__enter" id="intro-enter" hidden>轻触，打开</button>
+  </div>
+</div>
+
+<!-- 主舞台：竖向整屏吸附 -->
+<div class="bgwash" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<main class="stage" id="stage">
+
+  <section class="screen cover" data-kind="cover">
+    <div class="cover__art"><img src="assets/scene/cover.webp" alt=""></div>
+    <div class="wrap">
+      <p class="kicker rv" style="--d:.1s" id="cover-kicker"></p>
+      <h1 class="display rv" style="--d:.2s" id="cover-year"></h1>
+      <h2 class="title rv" style="--d:.35s"><span id="cover-name"></span><span id="cover-title-suffix"></span></h2>
+      <p class="sub rv" style="--d:.5s" id="cover-sub"></p>
+      <div class="capy rv" style="--d:.7s">
+        <img class="capy__img capy__lulu" id="capy-lulu" src="assets/char/hero.webp" alt="噜噜" hidden>
+        <span class="capy__heart" id="capy-heart" hidden>♥</span>
+        <img class="capy__img capy__mei" id="capy-mei" alt="噜妹" hidden>
+      </div>
+      <p class="capy__label rv" style="--d:.85s" id="capy-label" hidden></p>
+    </div>
+    <div class="scrollhint rv" style="--d:.9s" id="cover-hint">
+      <span class="chev"></span>
+    </div>
+  </section>
+
+  <section class="screen stats" data-kind="stats">
+    <img class="peek peek--tr" src="assets/scene/car.webp" alt="">
+    <div class="wrap">
+      <p class="kicker rv" id="stats-kicker"></p>
+      <h2 class="h2 rv" style="--d:.1s" id="stats-title"></h2>
+      <ul class="statlist" id="stats-list"></ul>
+    </div>
+  </section>
+
+  <section class="screen happiest" data-kind="happiest">
+    <img class="peek peek--tr peek--sm" src="assets/scene/mei.webp" alt="">
+    <div class="wrap">
+      <p class="kicker rv" id="hap-kicker"></p>
+      <figure class="photo rv" style="--d:.1s">
+        <img id="hap-img" alt="" loading="lazy" decoding="async">
+        <figcaption class="photo__tag" id="hap-tag"></figcaption>
+      </figure>
+      <blockquote class="quote rv" style="--d:.3s" id="hap-quote"></blockquote>
+      <p class="note rv" style="--d:.45s" id="hap-note"></p>
+    </div>
+  </section>
+
+  <!-- 告白页由 app.js 根据 content.js 生成 -->
+
+  <section class="screen future" data-kind="future">
+    <img class="peek peek--tr" src="assets/scene/snow.webp" alt="">
+    <div class="wrap">
+      <p class="kicker rv" id="fut-kicker"></p>
+      <h2 class="h2 rv" style="--d:.1s" id="fut-title"></h2>
+      <ul class="wishlist" id="fut-list"></ul>
+    </div>
+  </section>
+
+  <section class="screen end" data-kind="end">
+    <div class="wrap center">
+      <p class="end__line rv" id="end-text"></p>
+      <p class="end__sub rv" style="--d:.6s" id="end-sub"></p>
+      <div class="end__hint rv" style="--d:1.2s">
+        <span>上滑，还有一张图</span>
+        <span class="chev"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen poster" data-kind="poster">
+    <div class="wrap center">
+      <p class="kicker rv">留个纪念</p>
+      <div class="poster__frame rv" style="--d:.1s">
+        <img id="poster-img" alt="生日海报">
+      </div>
+      <p class="poster__hint rv" style="--d:.3s">长按图片，保存到相册</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- 进度点 -->
+<nav class="dots" id="dots" aria-hidden="true"></nav>
+
+<!-- 音乐（无音源时自动隐藏） -->
+<button class="sound" id="sound" aria-label="播放音乐" hidden>
+  <span class="sound__bars"><i></i><i></i><i></i></span>
+</button>
+
+<audio id="audio" loop preload="none"></audio>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
