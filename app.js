@@ -8,6 +8,19 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   document.title = C.name + ' 的 ' + C.year;
 
+  // 「第 N 天」：从 startDate 算到今天，每天打开都不一样
+  function daysSince(d) {
+    if (!d) return null;
+    var start = new Date(d + 'T00:00:00');
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return Math.floor((today - start) / 86400000) + 1;
+  }
+  var DAYS = daysSince(C.startDate);
+  function fillDays(s) {
+    return DAYS ? String(s).replace(/\{days\}/g, DAYS) : String(s).replace(/\{days\}/g, '');
+  }
+
   // 水豚：有噜妹就显示一对
   (function () {
     var CH = C.characters || {};
@@ -71,22 +84,39 @@
 
   // 告白页
   var futureScreen = $('.screen.future');
-  C.letters.forEach(function (l, i) {
+  var VER = params.get('v') === '8' ? 8 : 16;
+  var LETTERS = VER === 8 ? (C.letters8 || []) : (C.letters16 || []);
+
+  LETTERS.forEach(function (l, i) {
     var sec = document.createElement('section');
     sec.className = 'screen letter';
+    if (l.big) sec.className += ' letter--big';
+    if (l.lead) sec.className += ' letter--lead';
+    if (l.imgs && l.imgs.length) sec.className += ' letter--photo';
+    if (l.body.length > 1) sec.className += ' letter--p2';
     sec.dataset.kind = 'letter';
+
     var no = String(i + 1).padStart(2, '0');
-    var side = i % 2 === 0 ? 'peek--tr' : 'peek--tl';
-    var peek = l.img ? '<img class="peek ' + side + '" src="' + l.img + '" alt="">' : '';
+    var body = l.body.map(function (p) { return '<p>' + fillDays(p) + '</p>'; }).join('');
+
+    var media = '';
+    if (l.imgs && l.imgs.length === 1) {
+      media = '<figure class="shot' + (l.wide ? ' shot--wide' : '') + '">' +
+                '<img src="' + l.imgs[0] + '" alt="" loading="lazy">' +
+              '</figure>';
+    } else if (l.imgs && l.imgs.length > 1) {
+      media = '<div class="shot-row' + (l.strip ? ' shot-row--strip' : '') + '">' +
+                l.imgs.map(function (u) {
+                  return '<img src="' + u + '" alt="" loading="lazy">';
+                }).join('') +
+              '</div>';
+    }
+
     sec.innerHTML =
-      peek +
       '<span class="letter__no">' + no + '</span>' +
       '<div class="wrap">' +
-        '<p class="kicker rv">' + l.kicker + '</p>' +
-        '<h2 class="h2 rv" style="--d:.1s">' + l.title + '</h2>' +
-        '<div class="letter__body rv" style="--d:.22s">' +
-          l.body.map(function (p) { return '<p>' + p + '</p>'; }).join('') +
-        '</div>' +
+        '<div class="letter__body rv" style="--d:.15s">' + body + '</div>' +
+        (media ? '<div class="rv" style="--d:.32s">' + media + '</div>' : '') +
       '</div>';
     stage.insertBefore(sec, futureScreen);
   });
@@ -104,6 +134,13 @@
   // 结尾
   setText('#end-text', C.ending.text);
   setText('#end-sub', C.ending.sub);
+
+  if (C.simple) {
+    ['stats', 'happiest', 'future'].forEach(function (k) {
+      var el = document.querySelector('.screen[data-kind="' + k + '"]');
+      if (el) el.remove();
+    });
+  }
 
   /* ---------------- 进度点 ---------------- */
 
