@@ -18,7 +18,9 @@
   }
   var DAYS = daysSince(C.startDate);
   function fillDays(s) {
-    return DAYS ? String(s).replace(/\{days\}/g, DAYS) : String(s).replace(/\{days\}/g, '');
+    return DAYS
+      ? String(s).replace(/\{days\}/g, '<b class="num">' + DAYS + '</b>')
+      : String(s).replace(/\{days\}/g, '');
   }
 
   // 水豚：有噜妹就显示一对
@@ -84,7 +86,7 @@
 
   // 告白页
   var futureScreen = $('.screen.future');
-  var VER = params.get('v') === '8' ? 8 : 16;
+  var VER = params.get('v') === '16' ? 16 : 8;
   var LETTERS = VER === 8 ? (C.letters8 || []) : (C.letters16 || []);
 
   LETTERS.forEach(function (l, i) {
@@ -92,7 +94,8 @@
     sec.className = 'screen letter';
     if (l.big) sec.className += ' letter--big';
     if (l.lead) sec.className += ' letter--lead';
-    if (l.imgs && l.imgs.length) sec.className += ' letter--photo';
+    if ((l.imgs && l.imgs.length) || (l.deco && l.deco.length)) sec.className += ' letter--photo';
+    if (l.deco) sec.className += ' letter--tight';
     if (l.body.length > 1) sec.className += ' letter--p2';
     sec.dataset.kind = 'letter';
 
@@ -100,24 +103,29 @@
     var body = l.body.map(function (p) { return '<p>' + fillDays(p) + '</p>'; }).join('');
 
     var media = '';
-    if (l.imgs && l.imgs.length === 1) {
-      media = '<figure class="shot' + (l.wide ? ' shot--wide' : '') + '">' +
-                '<img src="' + l.imgs[0] + '" alt="" loading="lazy">' +
-              '</figure>';
+    if (l.deco && l.deco.length) {
+      media = '<div class="deco' + (l.deco.length > 2 ? ' deco--4' : '') + '">' +
+                l.deco.map(function (u) { return '<img src="' + u + '" alt="" loading="lazy">'; }).join('') +
+              '</div>';
+    } else if (l.imgs && l.imgs.length === 1) {
+      var cls = 'shot';
+      if (l.wide) cls += ' shot--wide';
+      if (l.solo) cls += ' shot--solo';
+      if (l.big) cls += ' shot--hero';
+      media = '<figure class="' + cls + '"><img src="' + l.imgs[0] + '" alt="" loading="lazy"></figure>';
     } else if (l.imgs && l.imgs.length > 1) {
       media = '<div class="shot-row' + (l.strip ? ' shot-row--strip' : '') + '">' +
-                l.imgs.map(function (u) {
-                  return '<img src="' + u + '" alt="" loading="lazy">';
-                }).join('') +
+                l.imgs.map(function (u) { return '<img src="' + u + '" alt="" loading="lazy">'; }).join('') +
               '</div>';
     }
 
+    var bodyHtml = '<div class="letter__body">' + body + '</div>';
+    var content = l.big ? (media + bodyHtml) : (bodyHtml + (media ? media : ''));
+    if (l.solo) sec.className += ' letter--tight';
+
     sec.innerHTML =
       '<span class="letter__no">' + no + '</span>' +
-      '<div class="wrap">' +
-        '<div class="letter__body rv" style="--d:.15s">' + body + '</div>' +
-        (media ? '<div class="rv" style="--d:.32s">' + media + '</div>' : '') +
-      '</div>';
+      '<div class="wrap">' + content + '</div>';
     stage.insertBefore(sec, futureScreen);
   });
 

@@ -30,8 +30,8 @@ window.CONTENT = {
   // ---------- 封面 ----------
   cover: {
     kicker: "ANNUAL REPORT · 2026",
-    title: "你的这一年",
-    sub: "由 一个人 生成 · 仅你可见",
+    title: "我和你的这一年",
+    sub: "给 宝贝 · 由 一个人 生成",
     hint: "上滑开始",
   },
 
@@ -82,7 +82,7 @@ window.CONTENT = {
     { body: ["你可爱、漂亮、温柔、善良、贴心、可靠。所有形容伴侣的好词，用在你身上都不过分。更难得的是我们那么合拍，像天生就该在一起。"],
       imgs: ["assets/scene/snow.webp"] },
     { body: ["我不是一个迷信的人，但是我总会有一种相信自己一切都会顺利的自信。这一次，在最重要的事情上，我又一次被运气照顾了——世界上真的有一个人那么适合我，而且让我遇见了。"],
-      imgs: ["assets/scene/aurora.webp"] },
+      deco: ["assets/scene/aurora.webp", "assets/scene/snow.webp", "assets/scene/maple.webp", "assets/scene/bath.webp"] },
     { body: ["从喜欢上你的那天起，我常常觉得自己运气真好。你让我第一次知道真正的喜欢是什么感觉，像是多出了一种感官，生活里到处都是会让我想起你的东西。"],
       imgs: ["assets/scene/maple.webp"] },
     { body: ["每一次和你聊天，和你说话，和你对视，和你拥抱，甚至只是看着你的一举一动，我对你的爱都愈加浓烈，让我更想坚定地和你一起相伴到生命尽头。"],
@@ -91,7 +91,7 @@ window.CONTENT = {
       imgs: ["assets/scene/blackbeach.webp"] },
     { body: ["我对你的爱是深沉、热烈且永恒的。我不善于用夸张的行动表达，但我会用我这一生向你讲述我对你的爱。"],
       imgs: ["assets/photos/wedding.webp"] },
-    { big: true, body: ["生日快乐", "我爱你"] },
+    { big: true, body: ["生日快乐", "我爱你"], imgs: ["assets/scene/reading.webp"] },
   ],
 
   letters8: [
@@ -108,17 +108,18 @@ window.CONTENT = {
     { body: ["五月份在宜兴，四月在厦门，三月在湖州和杭州，你带给我从未体验过的、和爱人之间的快乐，让我好庆幸自己能和你在一起。",
              "二月份，我们并肩走在外滩的寒风里，我不好意思开口，所以拖到情人节那天发消息给你表白。我们在一起的过程是如此自然，一切都如水到渠成，仿佛命运使然。"],
       imgs: ["assets/photos/changzhou.webp", "assets/photos/xiamen.webp", "assets/photos/hangzhou.webp"], strip: true },
-    { body: ["时间倒退回 2026 年 1 月 2 日，我们在新天地的小餐厅里面，我看着你的眼睛，听你谈着你的过往，你的生活，你的展望，我有一瞬间仿佛电流流过大脑一样，受到了上天的启示一般，一个声音在我心里涌现：眼前的你，就是我要找的人。",
+    { solo: true,
+      body: ["时间倒退回 2026 年 1 月 2 日，我们在新天地的小餐厅里面，我看着你的眼睛，听你谈着你的过往，你的生活，你的展望，我有一瞬间仿佛电流流过大脑一样，受到了上天的启示一般，一个声音在我心里涌现：眼前的你，就是我要找的人。",
              "你可爱、漂亮、温柔、善良、贴心、可靠。所有形容伴侣的好词，用在你身上都不过分。更难得的是我们那么合拍，像天生就该在一起。"],
       imgs: ["assets/scene/mei.webp"] },
     { body: ["我不是一个迷信的人，但是我总会有一种相信自己一切都会顺利的自信。这一次，在最重要的事情上，我又一次被运气照顾了——世界上真的有一个人那么适合我，而且让我遇见了。",
              "从喜欢上你的那天起，我常常觉得自己运气真好。你让我第一次知道真正的喜欢是什么感觉，像是多出了一种感官，生活里到处都是会让我想起你的东西。"],
-      imgs: ["assets/scene/aurora.webp"] },
+      deco: ["assets/scene/aurora.webp", "assets/scene/snow.webp", "assets/scene/maple.webp", "assets/scene/bath.webp"] },
     { body: ["每一次和你聊天，和你说话，和你对视，和你拥抱，甚至只是看着你的一举一动，我对你的爱都愈加浓烈，让我更想坚定地和你一起相伴到生命尽头。",
              "未来的生活，我会和你生活在一起，去世界各处留下我们的回忆，体验人生中所有的幸福与快乐。",
              "我对你的爱是深沉、热烈且永恒的。我不善于用夸张的行动表达，但我会用我这一生向你讲述我对你的爱。"],
-      imgs: ["assets/scene/lulu.webp"] },
-    { big: true, body: ["生日快乐", "我爱你"] },
+      solo: true, imgs: ["assets/scene/lulu.webp"] },
+    { big: true, body: ["生日快乐", "我爱你"], imgs: ["assets/scene/reading.webp"] },
   ],
 
   // ---------- 展望 ----------
