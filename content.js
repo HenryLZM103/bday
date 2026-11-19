@@ -141,6 +141,19 @@ window.CONTENT = {
   ending: {
     text: "这一年，谢谢你。",
     sub: "以后的每一年，还想和你一起。",
+    wall: [
+      "assets/photos/wall1.webp",
+      "assets/scene/end.webp",
+      "assets/photos/wall2.webp",
+      "assets/scene/car.webp",
+      "assets/photos/wall3.webp",
+      "assets/scene/bed.webp",
+      "assets/photos/wall4.webp",
+      "assets/scene/blackbeach.webp",
+      "assets/char/hero.webp",
+      "assets/char/sleep.webp",
+      "assets/char/close.webp",
+    ],
   },
 
   // ---------- 海报 ----------

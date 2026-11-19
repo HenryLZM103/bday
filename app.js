@@ -143,6 +143,13 @@
   setText('#end-text', C.ending.text);
   setText('#end-sub', C.ending.sub);
 
+  var wall = $('#end-wall');
+  if (wall && C.ending.wall) {
+    wall.innerHTML = C.ending.wall.map(function (u) {
+      return '<img src="' + u + '" alt="" loading="lazy">';
+    }).join('');
+  }
+
   if (C.simple) {
     ['stats', 'happiest', 'future'].forEach(function (k) {
       var el = document.querySelector('.screen[data-kind="' + k + '"]');
