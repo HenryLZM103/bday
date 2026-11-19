@@ -153,6 +153,6 @@ window.CONTENT = {
   // ---------- 音乐 ----------
   song: {
     src: "assets/audio/bgm.mp3",
-    title: "给你的一段小曲",
+    title: "就是爱你 · 陶喆",
   },
 };
